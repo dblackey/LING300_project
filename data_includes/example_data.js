@@ -4,12 +4,6 @@ PennController.ResetPrefix(null);
 PennController.AddHost("https://www.dropbox.com/home/LING300_dblackey_images/");
 //PennController.AddHost("http://files.lab.florianschwarz.net/ibexfiles/PennController/SampleTrials/");
 
-// Run this before every trial
-PennController.Header(
-    newVar("score", 0)          // The score Var element is part of every trial
-        .settings.global()      // Global: its value is NOT reset each time
-);
-
 // INSTRUCTIONS
 PennController( "instructions" ,
     defaultText
@@ -46,28 +40,28 @@ PennController.Template(  // Trials generated from design.csv from chunk_include
     ,
     newImage("image", row.picture + "?raw=1")
     ,
-    newText("null", "")                     // Dummy, unprinted Text element, automatically selected upon timeout (see below)
-    ,
-    getSelector("patch")
-        .shuffle()                          // Shuffle the images (dummy Text element not part of selector yet)
-        .settings.disableClicks()           // Selection by key, not by click
-        .settings.keys( 49, 50, 51, 52 )    // Charcodes for keys 1, 2, 3 and 4 (all-digit strings would be evaluated as charCodes)
-        .settings.add( getText("null") )    // Add dummy Text element now (after shuffle and key assignment)
-        .settings.frame("solid 2px green")  // Positive visual feedback (green) by default
-        .settings.callback(
-            getSelector("patch").test.selected( getImage("color1") )
-                .success( getVar("score").set(v=>v+1) )                           // Increment score if color1 was selected
-                .failure( getSelector("patch").settings.frame("solid 2px red") )  // Red frame otherwise (negative visual feedback)
-        )
-        .settings.log()                     // Log which color was selected
-        .wait()                             // Wait for a selection (dummy Text automatically selected after 1s of no selection)
-        .settings.disable()                 // First selection is definitive
-    ,
-    newTimer("end", 500)                    // Wait 500ms before next trial (so you can see visual feedback frame)
-        .start()
-        .wait()
-  )
-  .log( "color", row.colorText )            // Log which color name was shown
+  //   newText("null", "")                     // Dummy, unprinted Text element, automatically selected upon timeout (see below)
+  //   ,
+  //   getSelector("patch")
+  //       .shuffle()                          // Shuffle the images (dummy Text element not part of selector yet)
+  //       .settings.disableClicks()           // Selection by key, not by click
+  //       .settings.keys( 49, 50, 51, 52 )    // Charcodes for keys 1, 2, 3 and 4 (all-digit strings would be evaluated as charCodes)
+  //       .settings.add( getText("null") )    // Add dummy Text element now (after shuffle and key assignment)
+  //       .settings.frame("solid 2px green")  // Positive visual feedback (green) by default
+  //       .settings.callback(
+  //           getSelector("patch").test.selected( getImage("color1") )
+  //               .success( getVar("score").set(v=>v+1) )                           // Increment score if color1 was selected
+  //               .failure( getSelector("patch").settings.frame("solid 2px red") )  // Red frame otherwise (negative visual feedback)
+  //       )
+  //       .settings.log()                     // Log which color was selected
+  //       .wait()                             // Wait for a selection (dummy Text automatically selected after 1s of no selection)
+  //       .settings.disable()                 // First selection is definitive
+  //   ,
+  //   newTimer("end", 500)                    // Wait 500ms before next trial (so you can see visual feedback frame)
+  //       .start()
+  //       .wait()
+  // )
+  // .log( "color", row.colorText )            // Log which color name was shown
 );
 
 
