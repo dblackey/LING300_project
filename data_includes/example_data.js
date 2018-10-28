@@ -1,7 +1,7 @@
 PennController.ResetPrefix(null);
 // Fetch the images there:
 // TODO: replace with wherever images end up
-PennController.AddHost("https://www.dropbox.com/home/LING300_dblackey_images/item01.png?raw=1");
+PennController.AddHost("https://www.dropbox.com/home/LING300_dblackey_images/");
 //PennController.AddHost("http://files.lab.florianschwarz.net/ibexfiles/PennController/SampleTrials/");
 
 // Run this before every trial
@@ -47,13 +47,6 @@ PennController.Template(  // Trials generated from design.csv from chunk_include
     newImage("image", row.picture + "?raw=1")
     ,
     newText("null", "")                     // Dummy, unprinted Text element, automatically selected upon timeout (see below)
-    ,
-    newTimer("delay", 1000)                 // 1s timer, then dummy text selected (if no selection in the meantime)
-        .settings.callback( 
-            getSelector("patch").testNot.selected()  // Select 'null' only if no selection yet
-                .success( getSelector("patch").select(getText("null")) )
-        )
-        .start()
     ,
     getSelector("patch")
         .shuffle()                          // Shuffle the images (dummy Text element not part of selector yet)
