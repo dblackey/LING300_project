@@ -67,7 +67,7 @@ PennController.Template(  // Trials generated from design.csv from chunk_include
 // OLD IBEX SYNTAX FOR EARLY SENDING OF RESULTS
 var manualSendResults = true;
 var items = [["send", "__SendResults__", {}]];
-var shuffleSequence = seq("instructions", "trial", "send", "end"); // Order of labels reflects order of definition in this script
+var shuffleSequence = seq("instructions", rshuffle("trial"), "send", "end"); // Order of labels reflects order of definition in this script
 
 
 // FINAL SCREEN
