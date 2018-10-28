@@ -1,7 +1,7 @@
 PennController.ResetPrefix(null);
 // Fetch the images there:
 // TODO: replace with wherever images end up
-// PennController.AddHost("https://www.dropbox.com/home/LING300_dblackey_images/");
+PennController.AddHost("https://www.dropbox.com/home/LING300_dblackey_images/");
 // PennController.AddHost("http://files.lab.florianschwarz.net/ibexfiles/PennController/SampleTrials/");
 
 // INSTRUCTIONS
