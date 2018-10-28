@@ -1,6 +1,8 @@
 PennController.ResetPrefix(null);
 // Fetch the images there:
-PennController.AddHost("http://files.lab.florianschwarz.net/ibexfiles/PennController/SampleTrials/");
+// TODO: replace with wherever images end up
+PennController.AddHost("https://www.dropbox.com/home/LING300_dblackey_images/item01.png?raw=1");
+//PennController.AddHost("http://files.lab.florianschwarz.net/ibexfiles/PennController/SampleTrials/");
 
 // Run this before every trial
 PennController.Header(
@@ -30,38 +32,19 @@ PennController( "instructions" ,
 // TEST TRIALS
 PennController.Template(  // Trials generated from design.csv from chunk_includes
   row => PennController( "trial" ,
-    newSelector("patch")                    // Selector: group of elements out of which to choose
-    ,
     defaultImage
-        .settings.size(100, 100)            // Each image in this trial is 100x100px
-        .settings.selector("patch")         // Each image in this trial is a choice option
+        .settings.size(250, 250)            // Each image in this trial is 250 by 250
     ,
     defaultText
         .settings.size(100, 25)             // Each text has same width as images (100px)
         .settings.center()                  // Text labels will be centered below images
     ,
-    newText("display score", "")
-        .settings.text( getVar("score") )   // Can't pass getVar("score") to newText directly
-        .settings.before( newText("left label", "Score: ") )
-        .settings.size("100%")              // 100% width = as wide as the widest element on the page (= canvas below)
-        .settings.right()                   // + aligned to the right = aligned with right edge of widest element (canvas)
+    newText("sentence", row.sentence)         // Retrieve the color name from the CSV design spreadsheet
+        .settings.css("font-size", "large") // Make it stand out
+        // .settings.bold()
         .print()
     ,
-    newText("color", row.colorText)         // Retrieve the color name from the CSV design spreadsheet
-        .settings.css("font-size", "x-large") // Make it stand out
-        .settings.bold()
-        .print()
-    ,
-    newCanvas("patches", 500, 130)
-        .settings.add(  0,   0, newImage("color1", row.color1) )   // Color patches
-        .settings.add(133,   0, newImage("color2", row.color2) )   // (filenames from CSV design spreadsheet)
-        .settings.add(266,   0, newImage("color3", row.color3) )
-        .settings.add(400,   0, newImage("color4", row.color4) )
-        .settings.add(  0, 105, newText("key1", "1") )             // Labels (keys)
-        .settings.add(133, 105, newText("key2", "2") )
-        .settings.add(266, 105, newText("key3", "3") )
-        .settings.add(400, 105, newText("key4", "4") )
-        .print()
+    newImage("image", row.picture + "?raw=1")
     ,
     newText("null", "")                     // Dummy, unprinted Text element, automatically selected upon timeout (see below)
     ,
@@ -103,14 +86,7 @@ var shuffleSequence = seq("instructions", "trial", "send", "end"); // Order of l
 
 // FINAL SCREEN
 PennController( "end" ,
-    newText("end", "Game over! Your final score is:")
-        .print()
-    ,
-    newText("final score", "")
-        .settings.text( getVar("score") )   // Can't pass getVar("score") directly to newText
-        .settings.center()
-        .settings.bold()
-        .settings.css("font-size", "x-large") // Make it stand out
+    newText("end", "This is the end of the experiment. Thanks for your participation!")
         .print()
     ,
     newTimer("ever", 1)                     // Dummy timer
