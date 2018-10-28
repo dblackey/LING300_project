@@ -1,11 +1,11 @@
 var shuffleSequence = seq("consent", "setcounter", "intro", "practice", "init", rshuffle(anyOf(startsWith("critical"), "filler")), "comments", "debriefing");
 var showProgressBar = false;
 
-var Parameters = {},
-    URLParameters = window.location.search.replace("?", "").split("&");
-for (parameter in URLParameters) Parameters[URLParameters[parameter].split("=")[0]] = URLParameters[parameter].split("=")[1];
-assert(Parameters.hasOwnProperty("id") == true, "Oops! It looks like you've not reached here through SONA...");
-var id = Parameters.id;
+// var Parameters = {},
+//     URLParameters = window.location.search.replace("?", "").split("&");
+// for (parameter in URLParameters) Parameters[URLParameters[parameter].split("=")[0]] = URLParameters[parameter].split("=")[1];
+// assert(Parameters.hasOwnProperty("id") == true, "Oops! It looks like you've not reached here through SONA...");
+// var id = Parameters.id;
 
 
 var defaults = [
