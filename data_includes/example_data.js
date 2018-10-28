@@ -37,9 +37,7 @@ PennController.Template(  // Trials generated from design.csv from chunk_include
         .settings.css("font-size", "large") // Make it stand out
         // .settings.bold()
         .print()
-    ,
     // newImage("image", row.picture + "?raw=1")
-    ,
   //   getSelector("patch")
   //       .shuffle()                          // Shuffle the images (dummy Text element not part of selector yet)
   //       .settings.disableClicks()           // Selection by key, not by click
