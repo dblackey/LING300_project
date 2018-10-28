@@ -36,6 +36,7 @@ PennController.Template(  // Trials generated from design.csv from chunk_include
     newText("sentence", "hiiii")         // Retrieve the color name from the CSV design spreadsheet
         .settings.css("font-size", "large") // Make it stand out
         .print()
+        .wait()
     // newImage("image", row.picture + "?raw=1")
   //   getSelector("patch")
   //       .shuffle()                          // Shuffle the images (dummy Text element not part of selector yet)
