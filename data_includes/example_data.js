@@ -33,6 +33,8 @@ PennController.Template(  // Trials generated from design.csv from chunk_include
         .settings.size(100, 25)             // Each text has same width as images (100px)
         .settings.center()                  // Text labels will be centered below images
     ,
+    newImage("image", row.picture + "?raw=1")
+    ,
     newText("sentence", row.sentence)         // Retrieve the color name from the CSV design spreadsheet
         .settings.css("font-size", "large") // Make it stand out
         .print()
