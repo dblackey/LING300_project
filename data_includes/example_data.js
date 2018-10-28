@@ -62,6 +62,7 @@ PennController.Template(  // Trials generated from design.csv from chunk_include
   //       .wait()
   // )
   // .log( "color", row.colorText )            // Log which color name was shown
+  )
 );
 
 
