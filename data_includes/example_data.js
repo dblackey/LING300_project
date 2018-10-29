@@ -9,11 +9,11 @@ PennController( "instructions" ,
     defaultText
         .print()
     ,
-    newText("intro1", "Welcome. You will see four patches of different colors aligned horizontally.")
+    newText("intro1", "In this experiment, you will see a collection of picture-sentence pairs.")
     ,
-    newText("intro2", "You have 1 second to select the color whose name is shown above the line of patches.")
+    newText("intro2", "For each pair, you will be asked to decide whether the sentence accurately describes the picture above it.")
     ,
-    newText("intro3", "Place your fingers above the numeric keys 1, 2, 3 and 4 on your keyboard.")
+    newText("intro3", "You can press T for true and F for false. Try to make the best judgement possible.")
     ,
     newText("intro4", "Press the space bar to begin.")
     ,
