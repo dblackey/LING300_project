@@ -1,6 +1,6 @@
 PennController.ResetPrefix(null);
 // TODO: replace with wherever images end up
-PennController.AddHost("http://files.lab.florianschwarz.net/ibexfiles/LING300DB");
+PennController.AddHost("https://files.lab.florianschwarz.net/ibexfiles/LING300DB");
 
 // TODO: add consent form
 
