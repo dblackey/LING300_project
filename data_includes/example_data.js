@@ -1,6 +1,6 @@
 PennController.ResetPrefix(null);
 // TODO: replace with wherever images end up
-PennController.AddHost("https://files.lab.florianschwarz.net/ibexfiles/LING300DB");
+// PennController.AddHost("https://files.lab.florianschwarz.net/ibexfiles/LING300DB");
 
 // TODO: add consent form
 
@@ -36,7 +36,7 @@ PennController.Template(  // Trials generated from design.csv from chunk_include
     ,
     newText("instruct", "Press T for true and F for false.")
     ,
-    newImage("image", row.picture)
+    newImage("image", "https://files.lab.florianschwarz.net/ibexfiles/LING300DB" + row.picture)
     ,
     newText("sentence", row.sentence)
         .settings.css("font-size", "large")
