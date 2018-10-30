@@ -27,7 +27,8 @@ PennController( "instructions" ,
 PennController.Template(  // Trials generated from design.csv from chunk_includes
   row => PennController( "trial" ,
     defaultImage
-        .settings.size(250, 250)
+        // .settings.size(720, 250)
+        .settings.center()
     ,
     defaultText
         .settings.size(100, 25)
