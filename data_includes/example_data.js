@@ -37,6 +37,7 @@ PennController.Template(  // Trials generated from design.csv from chunk_include
     newText("instruct", "Press T for true and F for false.")
     ,
     newImage("image", "https://files.lab.florianschwarz.net/ibexfiles/LING300DB/" + row.picture)
+        .print()
     ,
     newText("sentence", row.sentence)
         .settings.css("font-size", "large")
