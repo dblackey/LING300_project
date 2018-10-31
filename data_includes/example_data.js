@@ -2,17 +2,10 @@ PennController.ResetPrefix(null);
 
 // TODO: add consent form
 
-var consentForm = ["consent", "Form", {html: {include: "SONAconsentForm.html"}}];
-
 // TODO: add a line to instructions page that says make sure to get through the entire experiment (to the final page)
 // in order to receive credit for participation
 
 // TODO: have a friend take it timed
-
-PennController("consent",
-    newHtml("consentForm", "SONAconsentForm.html")
-        .print()
-)
 
 // INSTRUCTIONS
 PennController( "instructions" ,
@@ -70,8 +63,17 @@ PennController.Template(  // Trials generated from design.csv from chunk_include
 
 // OLD IBEX SYNTAX FOR EARLY SENDING OF RESULTS
 var manualSendResults = true;
-var items = [["send", "__SendResults__", {}]];
-var shuffleSequence = seq("consent", "instructions", rshuffle("trial"), "send", "end");
+var items = [
+    ["send", "__SendResults__", {}],
+    ["consent", "Form", {html: {include: "SONAconsentForm.html"}}],
+    ["comments", "Form",  {html: {include: "comments.html"}}, "__SendResults__", {
+       manualSendResults: true,
+       sendingResultsMessage: "Please wait while your answers are being saved.",
+       completionMessage: "Your answers have successfully being saved!"
+    }],
+    ["debriefing", "Message", {html: {include: "debriefing.html"}, transfer:null}],
+];
+var shuffleSequence = seq("consent", "instructions", rshuffle("trial"), "comments", "debriefing", "send", "end");
 
 // TODO: add debriefing
 
