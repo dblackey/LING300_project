@@ -73,7 +73,7 @@ var items = [
     }],
     ["debriefing", "Message", {html: {include: "debriefing.html"}, transfer:null}],
 ];
-var shuffleSequence = seq("consent", "instructions", rshuffle("trial"), "comments", "debriefing", "send", "end");
+var shuffleSequence = seq("consent", "instructions", rshuffle("trial"), "comments", "send", "debriefing");
 
 // TODO: add debriefing
 
