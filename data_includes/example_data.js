@@ -1,5 +1,4 @@
 PennController.ResetPrefix(null);
-PennController.AddHost("https://files.lab.florianschwarz.net/ibexfiles/LING300DB/");
 
 // TODO: add consent form
 
@@ -50,7 +49,7 @@ PennController.Template(  // Trials generated from design.csv from chunk_include
     ,
     newText("instruct", "Press T for true and F for false.")
     ,
-    newImage("image", row.picture)
+    newImage("image", "https://files.lab.florianschwarz.net/ibexfiles/LING300DB/" + row.picture)
         .print()
     ,
     newText("sentence", row.sentence)
