@@ -24,6 +24,7 @@ PennController( "instructions" ,
     newKey("numeric", " ")
         .wait()                 // start when space is pressed
 )
+.log("ParticipantID", PennController.GetURLParameter("id"))  // log the URL ID to associate responses with participant
 .setOption("hideProgressBar", true); // Do not show the progress bar on first screen
 
 
