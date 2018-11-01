@@ -1,11 +1,10 @@
 PennController.ResetPrefix(null);
 
-// TODO: add consent form
-
-// TODO: add a line to instructions page that says make sure to get through the entire experiment (to the final page)
-// in order to receive credit for participation
-
-// TODO: have a friend take it timed
+// CHECK TO MAKE SURE PARTICIPANT REACHED THROUGH SONA
+var Parameters = {},
+    URLParameters = window.location.search.replace("?", "").split("&");
+for (parameter in URLParameters) Parameters[URLParameters[parameter].split("=")[0]] = URLParameters[parameter].split("=")[1];
+assert(Parameters.hasOwnProperty("id") == true, "Oops! It looks like you've not reached here through SONA...");
 
 // INSTRUCTIONS
 PennController( "instructions" ,
@@ -56,8 +55,7 @@ PennController.Template(  // Trials generated from design.csv from chunk_include
   .log("label", row.label)
   .log("sentence", row.sentence)
   .log("image", row.picture)
-  .log("ID", PennController.GetURLParameter("id"))
-  // TODO: see URL method for handling submissions tutorial
+  .log("ParticipantID", PennController.GetURLParameter("id"))  // log the URL ID to associate responses with participant
 );
 
 
@@ -75,9 +73,6 @@ var items = [
 ];
 var shuffleSequence = seq("consent", "instructions", rshuffle("trial"), "comments", "debriefing");
 
-// TODO: add debriefing
-
-// TODO: add comments
 
 // FINAL SCREEN
 PennController( "end" ,
