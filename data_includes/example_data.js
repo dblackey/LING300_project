@@ -15,7 +15,7 @@ PennController( "instructions" ,
     ,
     newText("intro2", "you will be asked to decide whether the sentence accurately describes the picture above it.")
     ,
-    newText("intro3", "You can press T for true and F for false. Try to make the best judgement possible.")
+    newText("intro3", "You can press D for true and K for false. Try to make the best judgement possible.")
     ,
     newText("intro4", "In order to receive credit for your participation, be sure not to exit until you are told")
     ,
@@ -40,7 +40,7 @@ PennController.Template(  // Trials generated from design.csv from chunk_include
         .settings.center()
         .print()
     ,
-    newText("instruct", "Press T for true and F for false.")
+    newText("instruct", "Press D for true and K for false.")
     ,
     newImage("image", "https://files.lab.florianschwarz.net/ibexfiles/LING300DB/" + row.picture)
         .print()
@@ -48,7 +48,7 @@ PennController.Template(  // Trials generated from design.csv from chunk_include
     newText("sentence", row.sentence)
         .settings.css("font-size", "large")
     ,
-    newKey("key", "tf")
+    newKey("key", "dk")
         .settings.log()  // log response
         .wait()
   )
