@@ -4,7 +4,7 @@ PennController.ResetPrefix(null);
 var Parameters = {},
     URLParameters = window.location.search.replace("?", "").split("&");
 for (parameter in URLParameters) Parameters[URLParameters[parameter].split("=")[0]] = URLParameters[parameter].split("=")[1];
-assert(Parameters.hasOwnProperty("id") == true, "Oops! It looks like you've not reached here through SONA...");
+assert(Parameters.hasOwnProperty("id"), "Oops! It looks like you've not reached here through SONA...");
 
 // INSTRUCTIONS
 PennController( "instructions" ,
